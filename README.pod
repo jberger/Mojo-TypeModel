@@ -2,6 +2,13 @@
 
 Mojo::TypeModel - A very simple model system using Mojo::Base
 
+=head1 DESCRIPTION
+
+A model system using L<Mojo::Base> and primarily for L<Mojolicious> applications.
+The models can call other models and can pass data to them (like db connections).
+
+Additionally, L<Mojolicious::Plugin::TypeModel> is included to build helpers for models.
+
 =head1 EXAMPLE
 
 This is a (reduced) model from the L<CarPark> application.
