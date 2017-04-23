@@ -125,7 +125,7 @@ Meant to be overloaded by subclasses.
 
 =head2 model
 
-  my $user_model = $base->model('type' => $overrides);
+  my $user_model = $base->model(user => $overrides);
 
 Takes a string type for the type to instantiate (see L</types>).
 Optionally accepts a hash reference or list of key-value pairs of attribute overrides.
