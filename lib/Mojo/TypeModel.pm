@@ -70,7 +70,7 @@ Then a model class inherits from it
     # use db to check
   }
 
-A model instance's C<model> method is used to construct other models.
+A model instance's L</model> method is used to construct other models.
 
   package CarPark::Model::Door;
 
@@ -108,7 +108,7 @@ Helper methods may be installed via the plugin.
     });
   }
 
-The C<copies> properties propagate when instantiated via another model instance's C<model> method.
+The L</copies> properties propagate when instantiated via another model instance's L</model> method.
 
   my $exists = CarPark->new(config => {...}, db => $db)->model('user')->exists;
 
@@ -149,10 +149,15 @@ Joel Berger, E<lt>joel.a.berger@gmail.comE<gt>
 
 =head1 CONTRIBUTORS
 
-None yet.
+=over
+
+=item None yet.
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 
 Copyright (C) 2017 by L</AUTHOR> and L</CONTRIBUTORS>.
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
+
