@@ -27,7 +27,7 @@ use Test::Mojo;
 }
 
 my $model = Local::Model->new(
-  config => { users => { bender => 1 } },
+  config => {users => {bender => 1}},
 );
 
 isa_ok $model, 'Local::Model';
@@ -42,10 +42,25 @@ subtest 'direct user model use' => sub {
   isa_ok $user_model, 'Mojo::TypeModel';
   isa_ok $user_model, 'Mojo::Base';
 
-  is_deeply $user_model->config, { users => {bender => 1} }, 'data copied';
+  is_deeply $user_model->config, {users => {bender => 1}}, 'data copied';
   ok $user_model->user_exists('bender'), 'model method works as expected';
   ok !$user_model->user_exists('leela'), 'model method works as expected';
 };
+
+subtest 'direct user model use with override' => sub {
+  my $user_model = $model->model('user', config => {users => {leela => 1}});
+
+  is_deeply $user_model->config, {users => {leela => 1}}, 'data overriden';
+  ok !$user_model->user_exists('bender'), 'model method works as expected';
+  ok $user_model->user_exists('leela'), 'model method works as expected';
+};
+
+subtest 'direct user model use with undef override' => sub {
+  my $user_model = $model->model('user', config => undef);
+
+  ok ! defined $user_model->config, 'data overridden';
+};
+
 
 subtest plugin => sub {
   my $app = Mojolicious->new;

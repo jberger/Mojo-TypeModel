@@ -12,7 +12,7 @@ sub model {
     unless my $class = $self->types->{$type};
 
   my %args = (@args == 1 ? %{$args[0]} : @args);
-  $args{$_} //= $self->$_() for @{ $self->copies };
+  $args{$_} = $self->$_() for grep { !exists $args{$_} } @{ $self->copies };
   return $class->new(%args);
 }
 
