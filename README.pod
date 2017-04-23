@@ -94,6 +94,29 @@ The C<copies> properties propagate when instantiated via another model instance'
 
   my $exists = $app->model->user->exists;
 
+=head1 METHODS
+
+=head2 copies
+
+Returns an array reference of attributes that should be copied into child model instances.
+Meant to be overloaded by subclasses.
+
+=head2 model
+
+  my $user_model = $base->model('type' => $overrides);
+
+Takes a string type for the type to instantiate (see L</types>).
+Optionally accepts a hash reference or list of key-value pairs of attribute overrides.
+
+The type's class is instantiated.
+The L</copies> attributes are copied from the invocant instance (the base) except where overrides were provided.
+The resulting instance is returned.
+
+=head2 types
+
+Returns a hash reference whose keys are types and the corresponding values are the classes that implement those types.
+Meant to be overloaded by subclasses.
+
 =head1 SOURCE REPOSITORY
 
 L<http://github.com/jberger/Mojo-TypeModel>
