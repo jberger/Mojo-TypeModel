@@ -113,7 +113,7 @@ Helper methods may be installed via the plugin.
 
 The L</copies> properties propagate when instantiated via another model instance's L</model> method.
 
-  my $exists = CarPark->new(config => {...}, db => $db)->model('user')->exists;
+  my $exists = CarPark::Model->new(config => {...}, db => $db)->model('user')->exists;
 
 ... which with the plugin is the same as
 
