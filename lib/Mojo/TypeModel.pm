@@ -2,6 +2,9 @@ package Mojo::TypeModel;
 
 use Mojo::Base -base;
 
+our $VERSION = '0.01';
+$VERSION = eval $VERSION;
+
 use Carp ();
 
 sub copies { state $copies = [] }
